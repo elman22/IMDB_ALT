@@ -1048,7 +1048,7 @@ begin
 
     if (StrVal1 <> '') and (GetOption('Tagline') = 1) then
     begin
-      StrVal1 := 'Tagline: ' + StringReplace(StrVal1, '\', '');
+      StrVal1 := '"' + StringReplace(StrVal1, '\', '') + '"';
       StrVal1 := StrVal1 + #13#10 + #13#10 + StrVal2;
       if StrVal3 <> '' then
         SetField(fieldDescription, StrVal1 + #13#10 #13#10 + 'All runtimes:' + #13#10 + StrVal3)
@@ -1100,7 +1100,7 @@ begin
       if StrVal2 <> '' then
       begin
         StrVal2 := StringReplace(StrVal2, '\n', #13#10);
-        StrVal3 := StringReplace(StrVal1 + #13#10 + #13#10 + StrVal2, '\', '');
+        StrVal3 := StringReplace(StrVal2, '\', '');
         SetField(fieldComments, StrVal3);
       end;
     end;
